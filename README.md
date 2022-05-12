@@ -27,9 +27,15 @@ pytest path/to/tests/
 ```python
 import heapy
 
-mheap = heapy.MinHeap()
+maxheap = heapy.MaxHeap()
+minheap = heapy.MinHeap()
 for i in range(10):
-    mheap.insert(i, i**2)
-mheap.remove()
-# (0, 0)
+    maxheap.insert((i, None))
+    minheap.insert((i, None))
+
+[maxheap.remove()[0] for _ in range(10)]
+# [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+
+[minheap.remove()[0] for _ in range(10)]
+# [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
